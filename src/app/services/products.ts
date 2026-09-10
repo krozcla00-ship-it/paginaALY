@@ -1,4 +1,39 @@
 import { Service } from '@angular/core';
+import { inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Product } from '../interfaces/products';
+import { environment } from '../../environments/environment';
+
 
 @Service()
-export class Products {}
+export class Products {
+
+
+    _http = inject(HttpClient);
+
+
+    URL_PRODUCTOS = environment.apiUrl + '/productos';
+
+
+
+
+    crearProducto(producto: Product) {
+        return this._http.post(this.URL_PRODUCTOS + '/crear', producto);
+    }
+
+
+    mostrarProductos() {
+        return this._http.get(this.URL_PRODUCTOS + '/mostrar');
+    }
+
+
+    editarProducto(id: string, productoActualizado: Product) {
+        return this._http.put(this.URL_PRODUCTOS + '/actualizar' + id, productoActualizado);
+    }
+
+
+    eliminarProducto(id: string) {
+        return this._http.delete(this.URL_PRODUCTOS + '/eliminar' + id);
+    }
+
+}
