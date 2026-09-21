@@ -4,8 +4,8 @@ import { Footer } from '../../component/footer/footer';
 
 @Component({
   imports: [Navbar, Footer],
-  selector: 'app-products',
-  styleUrl: './products.css',
-  templateUrl: './products.html',
+  selector: 'app-inform',
+  styleUrl: './inform.css',
+  templateUrl: './inform.html',
 })
-export class Products {}
+export class Inform {}

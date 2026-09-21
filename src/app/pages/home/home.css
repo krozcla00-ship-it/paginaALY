@@ -1,0 +1,100 @@
+header {
+padding: 100px 0 !important; 
+animation: fadeIn 1.2s ease-in-out;
+}
+
+#texto-r {
+font-family: 'Poppins', 'Montserrat', sans-serif;
+font-weight: 700;
+letter-spacing: -1px;
+text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4); 
+}
+
+header p.lead {
+font-size: 1.25rem;
+text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+}
+
+header .btn-outline-light {
+border-radius: 30px; 
+padding: 12px 35px;
+font-weight: 500;
+text-transform: uppercase;
+font-size: 0.9rem;
+letter-spacing: 1px;
+transition: all 0.3s ease;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+header .btn-outline-light:hover {
+background-color: #ffffff;
+color: #4a3b63 !important; 
+transform: translateY(-2px); 
+}
+
+
+main h2 {
+color: #32254f; 
+letter-spacing: 0.5px;
+position: relative;
+display: inline-block;
+left: 50%;
+transform: translateX(-50%);
+}
+
+
+main h2::after {
+content: '';
+display: block;
+width: 60px;
+height: 3px;
+background-color: #ffffff;
+margin: 10px auto 0 auto;
+border-radius: 2px;
+}
+
+
+main .card {
+border-radius: 16px !important; 
+overflow: hidden;
+transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+}
+
+
+main .card:hover {
+transform: translateY(-8px); 
+box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15) !important; 
+}
+
+
+main .card-img-overlay {
+background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 60%) !important;
+padding: 25px !important;
+}
+
+main .card-title {
+font-size: 1.4rem;
+margin-bottom: 12px;
+text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+
+main .card .btn-light {
+border-radius: 20px;
+padding: 6px 18px;
+font-weight: 600;
+color: #4a3b63;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+transition: all 0.2s ease;
+}
+
+main .card .btn-light:hover {
+background-color: #4a3b63;
+color: #ffffff !important;
+}
+
+
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(10px); }
+to { opacity: 1; transform: translateY(0); }
+}

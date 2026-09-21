@@ -1,2 +1,60 @@
 <app-navbar></app-navbar>
-<p>gallery works!</p>
+
+<div class="container my-5">
+
+    <h1 class="text-center mb-5 fw-bold">Nuestro Catálogo</h1>
+
+
+    <div class="row justify-content-center mb-5">
+        <div class="col-auto">
+            <button class="btn btn-dark filter-btn me-2" data-category="todos">Todos</button>
+            <button class="btn btn-outline-dark filter-btn me-2" data-category="bodys">Bodys</button>
+            <button class="btn btn-outline-dark filter-btn me-2" data-category="esenciales">Basicas</button>
+            <button class="btn btn-outline-dark filter-btn" data-category="vestidos">Vestidos</button>
+        </div>
+    </div>
+
+    <div class="row g-4" id="contenedor-productos">
+    
+
+        <div class="col-md-4 producto-item" data-category="bodys">
+            <div class="card h-100 border-0 shadow-sm">
+                <img src="assets/img/bodys1.jpg" class="card-img-top object-fit-cover" alt="Body Aly Premium">
+                <div class="card-body text-center">
+                    <span class="badge bg-secondary mb-2">Body</span>
+                    <h5 class="card-title fw-bold">Body Aly Premium</h5>
+                    <p class="card-text text-muted">Diseño moldeador con ajuste perfecto.</p>
+                    <a href="/products" class="btn btn-dark w-100">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-4 producto-item" data-category="Basicas">
+            <div class="card h-100 border-0 shadow-sm">
+                <img src="assets/img/basicas1.jpg" class="card-img-top object-fit-cover" alt="Top Essential High Impact">
+                <div class="card-body text-center">
+                    <span class="badge bg-secondary mb-2">Basicas</span>
+                    <h5 class="card-title fw-bold">Basicas Essential High Impact</h5>
+                    <p class="card-text text-muted">Máxima comodidad y calidad premium.</p>
+                    <a href="/products" class="btn btn-dark w-100">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 producto-item" data-category="vestidos">
+            <div class="card h-100 border-0 shadow-sm">
+                <img src="assets/img/vestidos1.jpg" class="card-img-top object-fit-cover" alt="Vestido Versátil Premium">
+                <div class="card-body text-center">
+                    <span class="badge bg-secondary mb-2">Vestidos</span>
+                    <h5 class="card-title fw-bold">Vestido Versátil Premium</h5>
+                    <p class="card-text text-muted">Estilo sofisticado y confort para todo el día.</p>
+                    <a href="/products" class="btn btn-dark w-100">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<app-footer></app-footer>
