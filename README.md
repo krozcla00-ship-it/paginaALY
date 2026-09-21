@@ -1,59 +1,58 @@
-# Front
+# 🛒 Mundo ALY - Tienda de Ropa femenina
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.3.
+¡Bienvenido al repositorio oficial de **Mundo ALY**! Este proyecto contiene la interfaz de usuario de nuestra tienda en línea, desarrollada con **Angular** y **Bootstrap**, ofreciendo una experiencia de navegación moderna, fluida y totalmente adaptable a cualquier dispositivo móvil o de escritorio.
 
-## Development server
+## 🚀 Características Principales
 
-To start a local development server, run:
+*   **Estructura Angular Modular:** Implementación de componentes reutilizables como `<app-navbar>` y `<app-footer>`.
+*   **Diseño Elegante y Responsivo:** Uso de Bootstrap 5 con personalización estética mediante gradientes de color suaves.
+*   **Banner Principal Informativo:** Sección Hero con el lema *"Ropa que te define"* para enganchar al usuario desde el primer segundo.
+*   **Navegación por Categorías:** Acceso rápido y directo a secciones exclusivas: Bodys, Vestidos y Básicas.
 
-```bash
-ng serve
-```
+## 🛠️ Tecnologías Utilizadas
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+*   **Angular** (Framework de desarrollo)
+*   **Bootstrap 5** (Estilos globales y sistema de rejilla responsiva)
+*   **HTML5 / CSS3** (Estructura de vistas y estilos personalizados)
 
-## Code scaffolding
+## 📂 Organización de la Vista Principal
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+El código del inicio está estructurado en tres bloques clave:
+1.  `⚡ Hero Section`: Presentación de la marca **Mundo ALY** junto a un botón de llamado a la acción (`/products`).
+2.  `🛍️ Grid de Categorías`: Tarjetas (*Cards*) con imágenes optimizadas y botones directos de compra (`/checkout`).
+3.  `🧩 Componentes Globales`: Cabecera y pie de página compartidos en toda la aplicación.
 
-```bash
-ng generate component component-name
-```
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 💻 Instalación y Ejecución Local
 
-```bash
-ng generate --help
-```
+Para clonar y poner en marcha el proyecto en tu entorno local, sigue estos pasos:
 
-## Building
+1. **Clona este repositorio:**
+   ```bash
+   git clone https://github.com
+   ```
 
-To build the project run:
+2. **Accede a la carpeta del proyecto:**
+   ```bash
+   cd tu-repositorio
+   ```
 
-```bash
-ng build
-```
+3. **Instala todas las dependencias necesarias:**
+   ```bash
+   npm install
+   ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+4. **Inicia el servidor de desarrollo local:**
+   ```bash
+   ng serve
+   ```
+   Abre tu navegador web e ingresa a `http://localhost:4200/` para visualizar la tienda.
 
-## Running unit tests
+---
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## 📈 Roadmap (Próximas Mejoras)
 
-```bash
-ng test
-```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+*   [ ] Conectar las tarjetas de categorías al catálogo filtrado en lugar de enviar directo a `/checkout`.
+*   [ ] Implementar un estado global para gestionar el carrito de compras.
