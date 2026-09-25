@@ -53,6 +53,4 @@ Para clonar y poner en marcha el proyecto en tu entorno local, sigue estos pasos
 
 ## 📈 Roadmap (Próximas Mejoras)
 
-
-*   [ ] Conectar las tarjetas de categorías al catálogo filtrado en lugar de enviar directo a `/checkout`.
-*   [ ] Implementar un estado global para gestionar el carrito de compras.
+.......
