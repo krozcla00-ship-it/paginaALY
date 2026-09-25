@@ -4,27 +4,28 @@
   <h1 class="aly-main-title">Nuestro Catálogo</h1>
 
   
-  <div class="aly-management-card">
-    <h2 class="aly-sub-title">Gestión de Productos</h2>
-    <form (ngSubmit)="crearProducto()" class="aly-management-form">
-      <div class="aly-input-group">
-        <input type="text" class="aly-input" placeholder="URL de la imagen" [(ngModel)]="nuevoProducto.image" name="image" required />
-      </div>
-      <div class="aly-input-group">
-        <input type="text" class="aly-input" placeholder="Nombre del producto" [(ngModel)]="nuevoProducto.name" name="name" required />
-      </div>
-      <div class="aly-input-group">
-        <input type="number" class="aly-input" placeholder="Precio" [(ngModel)]="nuevoProducto.price" name="price" required />
-      </div>
-      <div class="aly-input-group">
-        <input type="number" class="aly-input" placeholder="Stock" [(ngModel)]="nuevoProducto.stock" name="stock" required />
-      </div>
-      <div class="aly-btn-group">
-        <button type="submit" class="aly-btn-add">Agregar</button>
-      </div>
-    </form>
-  </div>
-
+  @if (isAdmin()) {
+    <div class="aly-management-card">
+      <h2 class="aly-sub-title">Gestión de Productos (Panel Admin)</h2>
+      <form (ngSubmit)="crearProducto()" class="aly-management-form">
+        <div class="aly-input-group">
+          <input type="text" class="aly-input" placeholder="URL de la imagen" [(ngModel)]="nuevoProducto.image" name="image" required />
+        </div>
+        <div class="aly-input-group">
+          <input type="text" class="aly-input" placeholder="Nombre del producto" [(ngModel)]="nuevoProducto.name" name="name" required />
+        </div>
+        <div class="aly-input-group">
+          <input type="number" class="aly-input" placeholder="Precio" [(ngModel)]="nuevoProducto.price" name="price" required />
+        </div>
+        <div class="aly-input-group">
+          <input type="number" class="aly-input" placeholder="Stock" [(ngModel)]="nuevoProducto.stock" name="stock" required />
+        </div>
+        <div class="aly-btn-group">
+          <button type="submit" class="aly-btn-add">Agregar</button>
+        </div>
+      </form>
+    </div>
+  }
 
   @if (cargando()) {
     <div class="aly-loading-container">
@@ -56,17 +57,19 @@
             <p class="aly-product-price">${{ producto.price }}</p>
             <p class="aly-product-stock">Stock: {{ producto.stock }}</p>
             
-            
             <div class="aly-action-buttons" style="display: flex; gap: 10px; width: 100%; margin-top: 10px;">
               
+              <!-- El cliente normal y el admin pueden ver el botón añadir -->
               <button class="aly-btn-cart" (click)="agregarAlCarrito(producto)" style="flex: 1; padding: 8px; background-color: #0d6efd; color: white; border: none; border-radius: 4px; cursor: pointer;">
                 Añadir
               </button>
               
-              
-              <button class="aly-btn-delete" (click)="eliminarProducto(producto._id)" style="padding: 8px; background-color: #3d145a;; color: white; border: none; border-radius: 15px; cursor: pointer;">
-                Eliminar
-              </button>
+              <!-- 2. EL BOTÓN ELIMINAR SOLO SE MUESTRA SI ES ADMINISTRADOR -->
+              @if (isAdmin()) {
+                <button class="aly-btn-delete" (click)="eliminarProducto(producto._id)" style="padding: 8px; background-color: #3d145a; color: white; border: none; border-radius: 15px; cursor: pointer;">
+                  Eliminar
+                </button>
+              }
             </div>
 
           </div>

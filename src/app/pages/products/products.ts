@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Navbar } from '../../component/navbar/navbar';
 import { Footer } from '../../component/footer/footer';
 import { inject,signal } from '@angular/core';
@@ -9,22 +9,25 @@ import { FormsModule } from '@angular/forms';
 import { Product } from '../../interfaces/products'; 
 import { Productservices } from '../../services/products';
 import { CartService } from '../../services/cart';
-import swal from 'sweetalert';
+
+
 
 @Component({
-  imports: [Navbar, Footer,CommonModule,FormsModule],
+  imports: [Navbar, Footer,CommonModule,FormsModule, ],
   selector: 'app-products',
   styleUrl: './products.css',
   templateUrl: './products.html',
 })
-export class Products {
+export class Products implements OnInit {
 _productService = inject(Productservices);
+
 
 _cartService = inject(CartService)
 
   productos = signal<Product[]>([]);
   cargando = signal(false);
 
+public isAdmin = signal<boolean>(false); 
 
   nuevoProducto = {
     image: '',
@@ -35,6 +38,27 @@ _cartService = inject(CartService)
 
   ngOnInit(): void {
     this.mostrarProductos();
+    this.verificarRolUsuario();
+  }
+verificarRolUsuario(): void {
+    const token = localStorage.getItem('token'); 
+    
+    if (token) {
+      try {
+
+        const payloadBase64 = token.split('.')[1];
+        const payloadDecodificado = JSON.parse(atob(payloadBase64));
+        
+        if (payloadDecodificado.usuario?.role === 'admin' || payloadDecodificado.usuario?.rol === 'admin') {
+          this.isAdmin.set(true);
+        } else {
+          this.isAdmin.set(false);
+        }
+      } catch (error) {
+        console.error('Error al decodificar el token de sesión:', error);
+        this.isAdmin.set(false);
+      }
+    }
   }
 
   agregarAlCarrito(producto: Product){

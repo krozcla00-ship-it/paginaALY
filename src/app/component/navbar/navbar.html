@@ -27,7 +27,7 @@
       </ul>
       
 
-      <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav ms-auto" style="align-items: center; gap: 15px;">
         
         <li class="nav-item">
           <a class="nav-link position-relative d-inline-block" href="/checkout">
@@ -38,11 +38,34 @@
             </span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/login">
-            <img src="assets/img/login.jpg" alt="login" width="45" height="45" class="d-inline-block align-text-top">
-          </a>
-        </li>
+
+        
+        @if (isLoggedIn()) {
+          
+          <li class="nav-item">
+            <button (click)="ejecutarLogout()" class="aly-btn-logout" style="
+              background-color: #3b185f; /* El hermoso morado oscuro de tu marca Aly */
+              color: white; 
+              border: none; 
+              padding: 8px 20px; 
+              border-radius: 20px; 
+              font-weight: 600; 
+              cursor: pointer;
+              font-size: 0.9rem;
+              box-shadow: 0 4px 10px rgba(59, 24, 95, 0.15);
+              transition: background-color 0.2s ease;
+            ">
+              Salir
+            </button>
+          </li>
+        } @else {
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/login">
+              <img src="assets/img/login.jpg" alt="login" width="45" height="45" class="d-inline-block align-text-top">
+            </a>
+          </li>
+        }
       </ul>
         
     </div>
