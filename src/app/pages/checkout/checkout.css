@@ -1,0 +1,276 @@
+.aly-checkout-wrapper {
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 0 24px;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  min-height: 75vh;
+  color: #2c2536; 
+}
+
+
+.aly-main-title {
+  font-size: 2.25rem;
+  color: #3b185f; 
+  margin-bottom: 35px;
+  font-weight: 700;
+  text-align: left;
+}
+
+
+.aly-checkout-container {
+  display: flex;
+  gap: 40px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+
+.aly-checkout-main {
+  flex: 1.8;
+  min-width: 320px;
+}
+
+
+.aly-checkout-sidebar {
+  flex: 1;
+  min-width: 300px;
+}
+
+
+.aly-checkout-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px; 
+  margin-bottom: 20px;
+  box-shadow: 0 4px 20px rgba(59, 24, 95, 0.04); 
+  border: 1px solid #f3effa;
+  gap: 20px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.aly-checkout-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(59, 24, 95, 0.08);
+}
+
+.aly-checkout-img {
+  width: 90px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 12px; 
+  background-color: #fcfbfe;
+}
+
+.aly-checkout-details {
+  flex: 2;
+}
+
+.aly-checkout-prod-title {
+  margin: 0 0 6px 0;
+  font-size: 1.2rem;
+  color: #3b185f;
+  font-weight: 700;
+}
+
+.aly-checkout-prod-price {
+  margin: 0;
+  color: #7d6e8d;
+  font-size: 0.95rem;
+}
+
+.aly-checkout-prod-price span {
+  font-weight: 700;
+  color: #3b185f;
+}
+
+
+.aly-checkout-quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fbf9ff;
+  padding: 4px;
+  border-radius: 12px;
+  border: 1px solid #e8e2f2;
+}
+
+
+.aly-btn-qty {
+  background: #ffffff;
+  border: 1px solid #3b185f;
+  font-size: 1.1rem;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3b185f;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.aly-btn-qty:hover {
+  background: #3b185f;
+  color: #ffffff;
+}
+
+.aly-qty-number {
+  font-weight: 700;
+  min-width: 28px;
+  text-align: center;
+  color: #3b185f;
+  font-size: 0.95rem;
+}
+
+
+.aly-checkout-subtotal {
+  min-width: 100px;
+  text-align: right;
+}
+
+.aly-subtotal-price {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #3b185f;
+}
+
+
+.aly-btn-remove {
+  background: none;
+  border: none;
+  color: #a393b5;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 5px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.aly-btn-remove:hover {
+  color: #e53e3e;
+  transform: scale(1.15);
+}
+
+
+.aly-summary-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 20px; 
+  box-shadow: 0 8px 30px rgba(59, 24, 95, 0.05);
+  border: 1px solid #f3effa;
+  position: sticky;
+  top: 40px;
+}
+
+.aly-summary-title {
+  margin-top: 0;
+  font-size: 1.4rem;
+  color: #3b185f;
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+
+.aly-summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  color: #615275;
+  font-size: 1rem;
+}
+
+.aly-divider {
+  border: 0;
+  border-top: 1px solid #f3effa;
+  margin: 20px 0;
+}
+
+.aly-total-row {
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: #3b185f;
+}
+
+.aly-total-final {
+  font-size: 1.45rem;
+  color: #3b185f; 
+}
+
+
+.aly-btn-checkout-submit {
+  width: 100%;
+  padding: 16px;
+  background: #3b185f; 
+  color: #ffffff;
+  border: none;
+  border-radius: 25px; 
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 4px 12px rgba(59, 24, 95, 0.15);
+}
+
+.aly-btn-checkout-submit:hover {
+  background: #291043; 
+}
+
+.aly-btn-checkout-submit:active {
+  transform: scale(0.98);
+}
+
+
+.aly-empty-cart-box, .aly-login-prompt {
+  text-align: center;
+  padding: 60px 30px;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 2px dashed #d6cbdc;
+  max-width: 500px;
+  margin: 40px auto;
+}
+
+.aly-empty-cart-text, .aly-login-prompt h3 {
+  font-size: 1.25rem;
+  color: #615275;
+  margin-bottom: 25px;
+  font-weight: 500;
+}
+
+
+.aly-btn-go-shop, .aly-btn-login-redirect {
+display: inline-block;
+padding: 14px 35px;
+background: #3b185f;
+color: white;
+text-decoration: none;
+border-radius: 25px;
+font-weight: 600;
+transition: all 0.2s ease;
+box-shadow: 0 4px 12px rgba(59, 24, 95, 0.1);
+}
+
+.aly-btn-go-shop:hover, .aly-btn-login-redirect:hover {
+background: #291043;
+transform: translateY(-1px);
+}
+
+/* --- AJUSTES RESPONSIVOS --- */
+@media (max-width: 850px) {
+.aly-checkout-container {
+    flex-direction: column;
+}
+.aly-checkout-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 25px;
+}
+.aly-checkout-subtotal {
+    text-align: center;
+}
+}

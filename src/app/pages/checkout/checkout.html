@@ -1,3 +1,84 @@
 <app-navbar></app-navbar>
-<p>checkout works!</p>
+
+@if (isLoggedIn) {
+
+<div class="aly-checkout-wrapper">
+    <h1 class="aly-main-title">Resumen de tu Compra</h1>
+
+    <div class="aly-checkout-container">
+
+        
+        <div class="aly-checkout-main">
+            @for (item of cartItems; track item._id) {
+            <div class="aly-checkout-card">
+                <div class="aly-checkout-img-container">
+                    <img [src]="item.image || 'https://placeholder.com'" [alt]="item.name" class="aly-checkout-img" />
+                </div>
+
+                <div class="aly-checkout-details">
+                    <h3 class="aly-checkout-prod-title">{{ item.name }}</h3>
+                    <p class="aly-checkout-prod-price">Precio unitario: <span>${{ item.price }}</span></p>
+                </div>
+
+                
+                <div class="aly-checkout-quantity-control">
+                    <button class="aly-btn-qty" (click)="decrementarCantidad(item)">-</button>
+                    <span class="aly-qty-number">{{ item.quantity }}</span>
+                    <button class="aly-btn-qty" (click)="incrementarCantidad(item)">+</button>
+                </div>
+
+                
+                <div class="aly-checkout-subtotal">
+                    <p class="aly-subtotal-price">${{ item.price * item.quantity }}</p>
+                </div>
+
+
+                <button class="aly-btn-remove" (click)="eliminarArticulo(item._id)">✕</button>
+            </div>
+            } @empty {
+
+            <div class="aly-empty-cart-box">
+                <p class="aly-empty-cart-text">Tu carrito de compras está vacío.</p>
+                <a href="/products" class="aly-btn-go-shop">Ir al Catálogo</a>
+            </div>
+            }
+        </div>
+
+
+        @if (cartItems.length > 0) {
+        <div class="aly-checkout-sidebar">
+            <div class="aly-summary-card">
+                <h2 class="aly-summary-title">Resumen del Pedido</h2>
+
+                <div class="aly-summary-row">
+                    <span>Productos:</span>
+                    <span>{{ _cartService.getTotalCount() }} uds.</span>
+                </div>
+
+                <hr class="aly-divider" />
+
+                <div class="aly-summary-row aly-total-row">
+                    <span>Total a pagar:</span>
+                    <span class="aly-total-final">${{ totalPrice }}</span>
+                </div>
+
+                <button class="aly-btn-checkout-submit" (click)="procesarPago()">
+                    Proceder al Pago
+                </button>
+            </div>
+        </div>
+        }
+
+    </div>
+</div>
+} @else {
+
+<div class="aly-login-prompt" style="text-align: center; padding: 100px 20px; min-height: 50vh;">
+    <h3 style="margin-bottom: 20px; color: #333;">Inicia sesión para seguir con la compra</h3>
+    <a href="/login"
+        style="display: inline-block; padding: 12px 24px; background-color: #0d6efd; color: white; text-decoration: none; border-radius: 4px; font-weight: bold;">Iniciar
+        sesión</a>
+</div>
+}
+
 <app-footer></app-footer>

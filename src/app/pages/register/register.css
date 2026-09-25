@@ -1,116 +1,108 @@
-.register-container {
-max-width: 420px;
-margin: 60px auto;
-padding: 30px;
-background-color: #ffffff;
-border-radius: 12px;
-box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* Contenedor principal para centrar la tarjeta */
+.aly-page-wrapper {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  min-height: 80vh; 
+  width: 100% !important;
+  background: linear-gradient(135deg, #1b0a2a 0%, #3d145a 50%, #63227a 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+  padding: 40px 20px;
 }
 
-.register-container h2 {
-text-align: center;
-color: #2c3e50;
-margin-bottom: 25px;
-font-size: 26px;
-font-weight: 600;
+/* Tarjeta con efecto cristal */
+.aly-card-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 15px !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  text-align: center;
+  box-sizing: border-box;
 }
 
-
-.form-group {
-margin-bottom: 20px;
+/* Título */
+.aly-title {
+  color: #ffffff !important;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  letter-spacing: 0.5px;
 }
 
-.form-group label {
-display: block;
-margin-bottom: 8px;
-color: #546e7a;
-font-size: 14px;
-font-weight: 500;
+/* Formulario */
+.aly-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
-.form-group input {
-width: 100%;
-padding: 12px 14px;
-border: 1px solid #cfd8dc;
-border-radius: 8px;
-font-size: 15px;
-transition: all 0.3s ease;
-box-sizing: border-box;
+.aly-form-group {
+  width: 100%;
 }
 
-.form-group input:focus {
-border-color: #3f51b5;
-outline: none;
-box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.15);
+/* Inputs estilizados */
+.aly-input {
+  width: 100% !important;
+  padding: 0.8rem 1rem !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: none !important;
+  border-radius: 6px !important;
+  color: #3d145a !important;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  outline: none;
 }
 
-
-.error-text {
-color: #e53935;
-font-size: 12px;
-margin-top: 6px;
-display: block;
+.aly-input:focus {
+  background: #ffffff !important;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.4);
 }
 
-.alert {
-padding: 12px;
-border-radius: 8px;
-font-size: 14px;
-text-align: center;
-margin-bottom: 20px;
+/* Botón ovalado estilizado */
+.aly-btn {
+  width: 100% !important;
+  padding: 0.8rem !important;
+  background: transparent !important;
+  border: 2px solid #ffffff !important;
+  color: #ffffff !important;
+  border-radius: 50px !important;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: all 0.3s ease-in-out;
 }
 
-.error-alert {
-background-color: #ffebee;
-color: #c62828;
-border: 1px solid #ffcdd2;
+.aly-btn:hover:not(:disabled) {
+  background: #ffffff !important;
+  color: #3d145a !important;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
 }
 
-.success-alert {
-background-color: #e8f5e9;
-color: #2e7d32;
-border: 1px solid #c8e6c9;
+.aly-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
-
-button[type="submit"] {
-width: 100%;
-padding: 14px;
-background-color: #3f51b5;
-color: white;
-border: none;
-border-radius: 8px;
-font-size: 16px;
-font-weight: 600;
-cursor: pointer;
-transition: background-color 0.2s ease;
-margin-top: 10px;
+/* Enlaces inferiores */
+.aly-footer-text {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
-button[type="submit"]:hover {
-background-color: #303f9f;
-}
-
-button[type="submit"]:disabled {
-background-color: #b0bec5;
-cursor: not-allowed;
-}
-
-
-.login-link {
-text-align: center;
-margin-top: 20px;
-font-size: 14px;
-color: #78909c;
-}
-
-.login-link a {
-color: #3f51b5;
-text-decoration: none;
-font-weight: 600;
-}
-
-.login-link a:hover {
-text-decoration: underline;
+.aly-link {
+  color: #ffffff !important;
+  font-weight: 700;
+  text-decoration: underline !important;
+  margin-left: 0.25rem;
 }

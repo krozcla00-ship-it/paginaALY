@@ -34,7 +34,7 @@ transform: translateY(-2px);
 
 
 main h2 {
-color: #32254f; 
+color: #3d145a; 
 letter-spacing: 0.5px;
 position: relative;
 display: inline-block;
@@ -89,7 +89,7 @@ transition: all 0.2s ease;
 }
 
 main .card .btn-light:hover {
-background-color: #4a3b63;
+background-color: #3d145a;
 color: #ffffff !important;
 }
 

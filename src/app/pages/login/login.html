@@ -1,44 +1,56 @@
 <app-navbar></app-navbar>
 
-<div class="login-container">
-<h2>Iniciar Sesión</h2>
-
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<div class="container d-flex justify-content-center align-items-center vh-100" 
+     style="background: linear-gradient(135deg, #1b0a2a 0%, #3d145a 50%, #63227a 100%);">
+  
+  <div class="card p-4 shadow-lg text-white" 
+       style="width: 100%; max-width: 400px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 15px;">
     
-
-    <div class="form-group">
-    <label for="username">Correo Electrónico:</label>
-    <input 
-        type="email" 
-        id="username" 
-        formControlName="username" 
-        placeholder="ejemplo@correo.com">
-    </div>
-
-
-    <div class="form-group">
-    <label for="password">Contraseña:</label>
-    <input 
-        type="password" 
-        id="password" 
-        formControlName="password" 
-        placeholder="Tu contraseña">
-    </div>
-
-
-    @if (errorMessage) {
-    <p class="error-text">{{ errorMessage }}</p>
-    }
-
-
-    <button type="submit" [disabled]="loginForm.invalid">Ingresar</button>
-</form>
-
-<p class="register-link" style="text-align: center; margin-top: 20px; font-size: 14px; color: #c1deec;">
-    ¿No tienes una cuenta? <a routerLink="/register" style="color: #3f51b5; text-decoration: none; font-weight: 600;">Regístrate aquí</a>
-</p>
-
+    <h2 class="h4 mb-4 fw-bold text-center" style="color: #ffffff; letter-spacing: 0.5px;">Iniciar Sesión</h2>
+    
+    <form (ngSubmit)="login()" class="row g-3">
+      <div class="col-12">
+        <input type="email" 
+               class="form-control" 
+               placeholder="Correo electrónico" 
+               [(ngModel)]="credenciales.email" 
+               name="email" 
+               required 
+               style="background: rgba(255, 255, 255, 0.9); border: none; color: #3d145a;" />
+      </div>
+      
+      <div class="col-12">
+        <input type="password" 
+               class="form-control" 
+               placeholder="Contraseña" 
+               [(ngModel)]="credenciales.password" 
+               name="password" 
+               required 
+               style="background: rgba(255, 255, 255, 0.9); border: none; color: #3d145a;" />
+      </div>
+      
+      <div class="col-12 d-grid mt-4">
+        <button type="submit" 
+                class="btn fw-bold" 
+                [disabled]="cargando()"
+                style="background: transparent; border: 2px solid #ffffff; color: #ffffff; border-radius: 50px; padding: 10px; transition: all 0.3s ease;">
+          @if (cargando()) {
+            <span class="spinner-border spinner-border-sm me-2"></span>
+          }
+          Ingresar
+        </button>
+      </div>
+      
+      <div class="col-12 text-center mt-4">
+        <p class="small" style="color: rgba(255, 255, 255, 0.7);">
+          ¿No tienes cuenta? 
+          <a routerLink="/register" style="color: #ffffff; font-weight: bold; text-decoration: underline;">Regístrate aquí</a>
+        </p>
+      </div>
+    </form>
+  </div>
 </div>
+
 
 
 <app-footer></app-footer>

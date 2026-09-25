@@ -1,107 +1,232 @@
-main.container {
-background-color: #ffffff; 
-padding: 40px;
-border-radius: 24px; 
-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); 
-margin-top: 40px !important;
-margin-bottom: 40px !important;
+/* Contenedor general del catálogo */
+.aly-catalog-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
 }
 
-
-#imagen-detalle {
-transition: transform 0.5s ease;
-object-fit: cover;
+/* Título principal del catálogo (Morado oscuro de la marca) */
+.aly-main-title {
+  text-align: center;
+  color: #3d145a;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  letter-spacing: 0.5px;
 }
 
-.position-relative.rounded {
-border-radius: 16px !important; 
+/* Caja de Gestión de Productos (Efecto sutil sobre fondo blanco) */
+.aly-management-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(61, 20, 90, 0.08);
+  border: 1px solid rgba(61, 20, 90, 0.05);
+  margin-bottom: 3.5rem;
 }
 
-
-.badge.bg-dark {
-background-color: #32254f !important; 
-font-weight: 500;
-letter-spacing: 0.5px;
-border-radius: 6px;
+.aly-sub-title {
+  color: #3d145a;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
 }
 
-
-.breadcrumb-item a, .breadcrumb-item.active {
-font-size: 14px;
+/* Formulario inline responsivo */
+.aly-management-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-h1.display-5 {
-color: #1a0933; 
-font-size: 2.2rem;
-text-transform: capitalize; 
+.aly-input-group {
+  flex: 1 1 200px;
 }
 
-p.text-muted, .col-md-6 > p {
-color: #4a5568 !important; 
-line-height: 1.6;
+.aly-btn-group {
+  flex: 1 1 150px;
 }
 
-
-h4.fw-bold {
-color: #6f42c1; 
-font-size: 1.8rem;
-letter-spacing: 0.5px;
+/* Inputs adaptados a la paleta */
+.aly-input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: #f8f5fa;
+  border: 1px solid rgba(61, 20, 90, 0.1);
+  border-radius: 6px;
+  color: #3d145a;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  outline: none;
+  transition: all 0.2s ease;
 }
 
-
-ul.bold li {
-color: #4a5568;
-margin-bottom: 6px;
-font-size: 14px;
+.aly-input:focus {
+  background: #ffffff;
+  border-color: #63227a;
+  box-shadow: 0 0 0 3px rgba(99, 34, 122, 0.15);
 }
 
-
-.btn-check + .btn-outline-dark {
-border-color: #e2e8f0;
-color: #4a5568;
-font-weight: 600;
-width: 45px;
-height: 45px;
-display: inline-flex;
-align-items: center;
-justify-content: center;
-border-radius: 10px;
-transition: all 0.2s ease;
+/* Botón Agregar (Estilo ovalado sólido morado) */
+.aly-btn-add {
+  width: 100%;
+  padding: 0.8rem;
+  background: #3d145a;
+  border: 2px solid #3d145a;
+  color: #ffffff;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
-
-.btn-check:checked + .btn-outline-dark {
-background-color: #1a0933 !important; 
-border-color: #1a0933 !important;
-color: #ffffff !important;
+.aly-btn-add:hover {
+  background: transparent;
+  color: #3d145a;
 }
 
-
-.btn-dark.btn-lg {
-background-color: #6f42c1 !important; 
-border: none;
-border-radius: 12px;
-font-size: 1rem;
-letter-spacing: 0.5px;
-transition: all 0.3s ease;
-box-shadow: 0 4px 12px rgba(111, 66, 193, 0.2);
+/* Grid de productos nativo */
+.aly-products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
 }
 
-.btn-dark.btn-lg:hover {
-background-color: #5a32a3 !important; 
-transform: translateY(-2px);
+/* Tarjeta de producto individual */
+.aly-product-card {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(61, 20, 90, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.btn-outline-secondary {
-border-color: #cbd5e1;
-color: #64748b;
-border-radius: 12px;
-padding: 10px;
-transition: all 0.2s ease;
+.aly-product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(61, 20, 90, 0.12);
 }
 
-.btn-outline-secondary:hover {
-background-color: #f8fafc;
-color: #1a0933;
-border-color: #94a3b8;
+/* Imagen del producto */
+.aly-image-container {
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  background-color: #f8f5fa;
+}
+
+.aly-product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.aly-product-card:hover .aly-product-img {
+  transform: scale(1.04);
+}
+
+/* Cuerpo de la tarjeta */
+.aly-card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.aly-product-title {
+  color: #1b0a2a;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+}
+
+/* Badge de categoría */
+.aly-category-badge-container {
+  margin-bottom: 1rem;
+}
+
+.aly-category-badge {
+  background: #f1e8f7;
+  color: #63227a;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Footer interno de la tarjeta */
+.aly-card-footer {
+  margin-top: auto;
+}
+
+.aly-product-price {
+  color: #3d145a;
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem 0;
+}
+
+.aly-product-stock {
+  color: #7b6f87;
+  font-size: 0.85rem;
+  margin: 0 0 1.2rem 0;
+}
+
+/* Botón Eliminar (Rojo/Rosa sutil para advertencia sin romper la armonía) */
+.aly-btn-delete {
+  width: 100%;
+  padding: 0.8rem;
+  background: #3d145a;
+  border: 2px solid #3d145a;
+  color: #ffffff;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.aly-btn-delete:hover {
+  background: #3d145a;
+  color: #ffffff;
+}
+
+/* Estado de carga */
+.aly-loading-container {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.aly-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(61, 20, 90, 0.1);
+  border-top-color: #3d145a;
+  border-radius: 50%;
+  animation: aly-spin 1s linear infinite;
+  margin: 0 auto 1rem auto;
+}
+
+@keyframes aly-spin {
+  to { transform: rotate(360deg); }
+}
+
+.aly-loading-text, .aly-empty-text {
+  color: #7b6f87;
+  font-size: 1rem;
+}
+
+.aly-empty-container {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 0;
 }

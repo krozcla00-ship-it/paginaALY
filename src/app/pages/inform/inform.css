@@ -1,3 +1,141 @@
-p{
-    color: aliceblue;
+/* Contenedor principal de la página de contacto */
+.aly-contact-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Sección de Introducción */
+.aly-info-section {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.aly-main-title {
+  color: #3d145a; /* Morado insignia de la marca */
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.aly-lead-text {
+  color: #5a4b66;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Línea divisoria elegante */
+.aly-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(61, 20, 90, 0.15), transparent);
+  margin: 2.5rem 0;
+}
+
+/* Contenedor del Formulario */
+.aly-form-section {
+  display: flex;
+  justify-content: center;
+}
+
+.aly-card-form {
+  width: 100%;
+  max-width: 550px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(61, 20, 90, 0.06);
+  border: 1px solid rgba(61, 20, 90, 0.05);
+}
+
+.aly-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.aly-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Etiquetas */
+.aly-label {
+  color: #3d145a;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* Cajas de texto e inputs estilizados */
+.aly-input, .aly-textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: #f8f5fa;
+  border: 1px solid rgba(61, 20, 90, 0.15);
+  border-radius: 6px;
+  color: #1b0a2a;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.aly-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.aly-input:focus, .aly-textarea:focus {
+  background: #ffffff;
+  border-color: #63227a;
+  box-shadow: 0 0 0 3px rgba(99, 34, 122, 0.15);
+}
+
+/* Botón de Enviar (Estilo ovalado sólido morado que cambia en hover) */
+.aly-btn-container {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.aly-btn-submit {
+  width: 100%;
+  padding: 0.9rem;
+  background: #3d145a;
+  border: 2px solid #3d145a;
+  color: #ffffff;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.aly-btn-submit:hover {
+  background: transparent;
+  color: #3d145a;
+  box-shadow: 0 4px 15px rgba(61, 20, 90, 0.15);
+}
+
+/* Alertas de Validación */
+.aly-alert {
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+.aly-alert-danger {
+  background-color: #fce8e6;
+  color: #a82424;
+  border: 1px solid #f5c2c2;
+}
+
+/* Clase de utilidad para ocultar elementos nativos de Angular/JS */
+.d-none {
+  display: none !important;
 }

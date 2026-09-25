@@ -1,59 +1,46 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Navbar } from '../../component/navbar/navbar';
 import { Footer } from '../../component/footer/footer';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { CommonModule } from '@angular/common'; 
+import { LoginService } from '../../services/login';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
+  standalone: true,
+  imports: [FormsModule, RouterLink, Navbar, Footer],
   templateUrl: './register.html',
-  styleUrl: './register.css',
-
-  imports: [Navbar, Footer, ReactiveFormsModule, RouterLink, CommonModule],
+  styleUrl: './register.css' 
 })
-export class Register {
+export class RegisterComponent {
+_loginService = inject(LoginService);
+_router = inject(Router);
 
-  registerForm!: FormGroup;
-  errorMessage: string = '';
-  successMessage: string = '';
+  cargando = signal(false);
+  usuario = { name: '', email: '', password: '' };
 
-  constructor(private fb: FormBuilder, private router: Router) {
-    this.registerForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(3)]],
-      username: ['', [Validators.required, Validators.email]], 
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', [Validators.required]]
-    }, {
-
-      validators: this.passwordMatchValidator
+  registrar() {
+    this.cargando.set(true);
+    this._loginService.registrarUsuario(this.usuario).subscribe({
+      next: () => {
+        this.cargando.set(false);
+        Swal.fire({
+          icon: 'success',
+          title: 'Registro exitoso',
+          text: 'Ya puedes iniciar sesión',
+          timer: 2000
+        });
+        this._router.navigate(['/login']); 
+      },
+      error: (err) => {
+        this.cargando.set(false);
+        Swal.fire({
+          icon: 'error',
+          title: 'Error al registrar',
+          text: err.error?.mensaje || 'Hubo un problema al crear la cuenta'
+        });
+      }
     });
   }
-
-
-  passwordMatchValidator(formGroup: FormGroup) {
-    const password = formGroup.get('password')?.value;
-    const confirmPassword = formGroup.get('confirmPassword')?.value;
-    return password === confirmPassword ? null : { mismatch: true };
-  }
-
-  onSubmit() {
-    if (this.registerForm.valid) {
-      const { name, username, password } = this.registerForm.value;
-      
-
-      console.log('Registrando usuario:', { name, username, password });
-      
-      this.successMessage = '¡Registro exitoso! Redirigiendo al login...';
-      this.errorMessage = '';
-
-
-      setTimeout(() => {
-        this.router.navigate(['/login']);
-      }, 2000);
-
-    } else {
-      this.errorMessage = 'Por favor, rellena el formulario correctamente.';
-    }
-  } 
 }

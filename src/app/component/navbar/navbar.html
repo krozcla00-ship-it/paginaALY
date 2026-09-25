@@ -12,18 +12,30 @@
         <li class="nav-item">
           <a class="nav-link" href="/">Inicio</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/gallery">Catalago</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/inform">Contacto</a>
-        </li>
-      </ul>
 
-        <ul class="navbar-nav ms-auto">
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="/gallery">Detalles</a>
+      </li> -->
         <li class="nav-item">
-          <a class="nav-link" href="/checkout">
+          <a class="nav-link" href="/products">Catalago</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/inform">Contactanos</a>
+        </li>
+        
+      </ul>
+      
+
+      <ul class="navbar-nav ms-auto">
+        
+        <li class="nav-item">
+          <a class="nav-link position-relative d-inline-block" href="/checkout">
             <img src="assets/img/carrito.png" alt="carrito" width="45" height="45" class="d-inline-block align-text-top">
+            
+            <span *ngIf="cartCount > 0" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="margin-top: 10px; margin-left: -10px;">
+              {{ cartCount }}
+            </span>
           </a>
         </li>
         <li class="nav-item">
@@ -31,9 +43,8 @@
             <img src="assets/img/login.jpg" alt="login" width="45" height="45" class="d-inline-block align-text-top">
           </a>
         </li>
-        </ul>
+      </ul>
         
     </div>
   </div>
 </nav>
-

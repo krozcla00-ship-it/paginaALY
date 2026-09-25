@@ -1,69 +1,83 @@
 <app-navbar></app-navbar>
 
-<main class="container my-5">
-    <div class="row g-5 align-items-center">
-    
+<div class="aly-catalog-wrapper">
+  <h1 class="aly-main-title">Nuestro Catálogo</h1>
 
-    <div class="col-md-6">
-        <div class="position-relative shadow-sm rounded overflow-hidden bg-light">
-        <img src="assets/img/bodys1.jpg" id="imagen-detalle" class="img-fluid w-100" alt="Prenda Aly">
-        <span class="badge bg-dark position-absolute top-0 start-0 m-3 px-3 py-2">Lo más vendido</span>
-        </div>
+  
+  <div class="aly-management-card">
+    <h2 class="aly-sub-title">Gestión de Productos</h2>
+    <form (ngSubmit)="crearProducto()" class="aly-management-form">
+      <div class="aly-input-group">
+        <input type="text" class="aly-input" placeholder="URL de la imagen" [(ngModel)]="nuevoProducto.image" name="image" required />
+      </div>
+      <div class="aly-input-group">
+        <input type="text" class="aly-input" placeholder="Nombre del producto" [(ngModel)]="nuevoProducto.name" name="name" required />
+      </div>
+      <div class="aly-input-group">
+        <input type="number" class="aly-input" placeholder="Precio" [(ngModel)]="nuevoProducto.price" name="price" required />
+      </div>
+      <div class="aly-input-group">
+        <input type="number" class="aly-input" placeholder="Stock" [(ngModel)]="nuevoProducto.stock" name="stock" required />
+      </div>
+      <div class="aly-btn-group">
+        <button type="submit" class="aly-btn-add">Agregar</button>
+      </div>
+    </form>
+  </div>
+
+
+  @if (cargando()) {
+    <div class="aly-loading-container">
+      <div class="aly-spinner"></div>
+      <p class="aly-loading-text">Cargando productos...</p>
     </div>
+  }
 
-
-    <div class="col-md-6">
-        <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="recursos.html" class="text-decoration-none text-muted">Catálogo</a></li>
-            <li class="breadcrumb-item active text-dark fw-semibold" aria-current="page">Bodys</li>
-        </ol>
-        </nav>
-
-        <h1 class="display-5 fw-bold mb-2">bodys Aly </h1>
-        <p class="mb-4">Categoría: blusa tipo bodys</p>
-        
-        <h4 class="fw-bold mb-3 ">$34.990</h4>
-
-        <hr class="my-4">
-
-        <h5 class="fw-bold">Descripción del recurso:</h5>
-        <p >
-        Ajuste ceñido que moldea delicadamente el torso.Cierre inferior con broches a presión para mayor practicidad.Tejido transpirable, suave al tacto y flexible.Versatilidad total: ideal para estilos casuales, de oficina o looks de noche.
-        </p>
-
-
-        <ul class=" ps-3 mb-4 bold">
-        <li>Material: 80% Poliéster, 20% Spandex.</li>
-        <li>Ajuste: Compresión ergonómica alta.</li>
-        <li>Cuidado: Lavar a máquina con agua fría.</li>
-        </ul>
-
-
-        <div class="mb-4">
-        <label class="form-label fw-bold">Selecciona tu Talla:</label>
-        <div>
-            <input type="radio" class="btn-check" name="tallas" id="tallaS" autocomplete="off" checked>
-            <label class="btn btn-outline-dark me-2" for="tallaS">S</label>
-
-            <input type="radio" class="btn-check" name="tallas" id="tallaM" autocomplete="off">
-            <label class="btn btn-outline-dark me-2" for="tallaM">M</label>
-
-            <input type="radio" class="btn-check" name="tallas" id="tallaL" autocomplete="off">
-            <label class="btn btn-outline-dark" for="tallaL">L</label>
+  <div class="aly-products-grid">
+    @for (producto of productos(); track producto._id) {
+      <div class="aly-product-card">
+        <div class="aly-image-container">
+          <img 
+            [src]="producto.image || 'https://via.placeholder.com/300x200?text=Sin+imagen'" 
+            class="aly-product-img"
+            [alt]="producto.name" 
+          />
         </div>
+        <div class="aly-card-body">
+          <h5 class="aly-product-title">{{ producto.name }}</h5>
+          
+          @if (producto.category) {
+            <div class="aly-category-badge-container">
+              <span class="aly-category-badge">{{ producto.category }}</span>
+            </div>
+          }
+          
+          <div class="aly-card-footer">
+            <p class="aly-product-price">${{ producto.price }}</p>
+            <p class="aly-product-stock">Stock: {{ producto.stock }}</p>
+            
+            
+            <div class="aly-action-buttons" style="display: flex; gap: 10px; width: 100%; margin-top: 10px;">
+              
+              <button class="aly-btn-cart" (click)="agregarAlCarrito(producto)" style="flex: 1; padding: 8px; background-color: #0d6efd; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                Añadir
+              </button>
+              
+              
+              <button class="aly-btn-delete" (click)="eliminarProducto(producto._id)" style="padding: 8px; background-color: #3d145a;; color: white; border: none; border-radius: 15px; cursor: pointer;">
+                Eliminar
+              </button>
+            </div>
+
+          </div>
         </div>
-
-        <div class="d-grid gap-2">
-        <button class="btn btn-dark btn-lg py-3 fw-bold">Añadir a la lista de deseos</button>
-        <a href="/gallery" class="btn btn-outline-secondary">Volver al catálogo</a>
-        </div>
-    </div>
-
-    </div>
-
-    
-</main>
-
+      </div>
+    } @empty {
+      <div class="aly-empty-container">
+        <p class="aly-empty-text">No hay productos registrados.</p>
+      </div>
+    }
+  </div>
+</div>
 
 <app-footer></app-footer>

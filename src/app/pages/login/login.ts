@@ -1,42 +1,48 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
+import { LoginService } from '../../services/login';
 import { Navbar } from '../../component/navbar/navbar';
 import { Footer } from '../../component/footer/footer';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
-import { RouterLink } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.html',
-  styleUrl: './login.css',
-
-  imports: [Navbar, Footer, ReactiveFormsModule, RouterLink], 
+  standalone: true,
+  imports: [FormsModule, RouterLink, Navbar, Footer ],
+  templateUrl: './login.html'
 })
-export class Login {
+export class LoginComponent {
+  _loginService = inject(LoginService);
+  _router = inject(Router);
 
-  loginForm!: FormGroup;
-  errorMessage: string = '';
+  cargando = signal(false);
+  credenciales = { email: '', password: '' };
 
-  constructor(private fb: FormBuilder, private router: Router) {
-
-    this.loginForm = this.fb.group({
-      username: ['', [Validators.required, Validators.email]], 
-      password: ['', [Validators.required, Validators.minLength(6)]] 
+  login() {
+    this.cargando.set(true);
+    this._loginService.iniciarSesion(this.credenciales).subscribe({
+      next: (res: any) => {
+        this.cargando.set(false);
+        localStorage.setItem('token', res.token); 
+        
+        Swal.fire({
+          icon: 'success',
+          title: '¡Bienvenido!',
+          timer: 1500,
+          showConfirmButton: false
+        });
+        
+        this._router.navigate(['/products']); 
+      },
+      error: (err) => {
+        this.cargando.set(false);
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: err.error?.mensaje || 'Credenciales inválidas'
+        });
+      }
     });
   }
-
-  onSubmit() {
-    if (this.loginForm.valid) {
-      const { username, password } = this.loginForm.value;
-      
-      if (username === 'usuario@correo.com' && password === '123456') {
-        console.log('¡Inicio de sesión exitoso!');
-        this.router.navigate(['/dashboard']); 
-      } else {
-        this.errorMessage = 'Credenciales incorrectas. Intenta de nuevo.';
-      }
-    } else {
-      this.errorMessage = 'Por favor, rellena el formulario correctamente.';
-    }
-  } 
-} 
+}

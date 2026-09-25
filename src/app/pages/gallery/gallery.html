@@ -1,60 +1,70 @@
 <app-navbar></app-navbar>
 
-<div class="container my-5">
+<main class="aly-detail-wrapper">
+  <div class="aly-detail-grid">
 
-    <h1 class="text-center mb-5 fw-bold">Nuestro Catálogo</h1>
-
-
-    <div class="row justify-content-center mb-5">
-        <div class="col-auto">
-            <button class="btn btn-dark filter-btn me-2" data-category="todos">Todos</button>
-            <button class="btn btn-outline-dark filter-btn me-2" data-category="bodys">Bodys</button>
-            <button class="btn btn-outline-dark filter-btn me-2" data-category="esenciales">Basicas</button>
-            <button class="btn btn-outline-dark filter-btn" data-category="vestidos">Vestidos</button>
-        </div>
+    <!-- Sección Izquierda: Imagen del Producto -->
+    <div class="aly-image-section">
+      <div class="aly-image-container">
+        <img src="assets/img/bodys1.jpg" id="imagen-detalle" class="aly-product-img" alt="Prenda Aly">
+        <span class="aly-badge-trending">Lo más vendido</span>
+      </div>
     </div>
 
-    <div class="row g-4" id="contenedor-productos">
-    
+    <!-- Sección Derecha: Información y Opciones -->
+    <div class="aly-info-section">
+      <nav aria-label="breadcrumb">
+        <ol class="aly-breadcrumb">
+          <li class="aly-breadcrumb-item">
+            <a href="/products" class="aly-breadcrumb-link">Catálogo</a>
+          </li>
+          <li class="aly-breadcrumb-item aly-active" aria-current="page">Bodys</li>
+        </ol>
+      </nav>
 
-        <div class="col-md-4 producto-item" data-category="bodys">
-            <div class="card h-100 border-0 shadow-sm">
-                <img src="assets/img/bodys1.jpg" class="card-img-top object-fit-cover" alt="Body Aly Premium">
-                <div class="card-body text-center">
-                    <span class="badge bg-secondary mb-2">Body</span>
-                    <h5 class="card-title fw-bold">Body Aly Premium</h5>
-                    <p class="card-text text-muted">Diseño moldeador con ajuste perfecto.</p>
-                    <a href="/products" class="btn btn-dark w-100">Ver Detalles</a>
-                </div>
-            </div>
+      <h1 class="aly-product-title">Bodys Aly</h1>
+      <p class="aly-product-category">Categoría: blusa tipo bodys</p>
+
+      <h4 class="aly-product-price">$34.990</h4>
+
+      <div class="aly-divider"></div>
+
+      <h5 class="aly-section-subtitle">Descripción del recurso:</h5>
+      <p class="aly-description-text">
+        Ajuste ceñido que moldea delicadamente el torso. Cierre inferior con broches a presión para mayor
+        practicidad. Tejido transpirable, suave al tacto y flexible. Versatilidad total: ideal para estilos
+        casuales, de oficina o looks de noche.
+      </p>
+
+      <ul class="aly-specs-list">
+        <li><strong>Material:</strong> 80% Poliéster, 20% Spandex.</li>
+        <li><strong>Ajuste:</strong> Compresión ergonómica alta.</li>
+        <li><strong>Cuidado:</strong> Lavar a máquina con agua fría.</li>
+      </ul>
+
+      
+      <div class="aly-size-selector-container">
+        <label class="aly-size-label">Selecciona tu Talla:</label>
+        <div class="aly-size-options">
+          <input type="radio" class="aly-radio-hidden" name="tallas" id="tallaS" autocomplete="off" checked>
+          <label class="aly-size-btn" for="tallaS">S</label>
+
+          <input type="radio" class="aly-radio-hidden" name="tallas" id="tallaM" autocomplete="off">
+          <label class="aly-size-btn" for="tallaM">M</label>
+
+          <input type="radio" class="aly-radio-hidden" name="tallas" id="tallaL" autocomplete="off">
+          <label class="aly-size-btn" for="tallaL">L</label>
         </div>
+      </div>
 
-
-        <div class="col-md-4 producto-item" data-category="Basicas">
-            <div class="card h-100 border-0 shadow-sm">
-                <img src="assets/img/basicas1.jpg" class="card-img-top object-fit-cover" alt="Top Essential High Impact">
-                <div class="card-body text-center">
-                    <span class="badge bg-secondary mb-2">Basicas</span>
-                    <h5 class="card-title fw-bold">Basicas Essential High Impact</h5>
-                    <p class="card-text text-muted">Máxima comodidad y calidad premium.</p>
-                    <a href="/products" class="btn btn-dark w-100">Ver Detalles</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4 producto-item" data-category="vestidos">
-            <div class="card h-100 border-0 shadow-sm">
-                <img src="assets/img/vestidos1.jpg" class="card-img-top object-fit-cover" alt="Vestido Versátil Premium">
-                <div class="card-body text-center">
-                    <span class="badge bg-secondary mb-2">Vestidos</span>
-                    <h5 class="card-title fw-bold">Vestido Versátil Premium</h5>
-                    <p class="card-text text-muted">Estilo sofisticado y confort para todo el día.</p>
-                    <a href="/products" class="btn btn-dark w-100">Ver Detalles</a>
-                </div>
-            </div>
-        </div>
-
+      
+      <div class="aly-action-buttons">
+        <button class="aly-btn-wishlist">Añadir a la lista de deseos</button>
+        <a href="/gallery" class="aly-btn-back">Volver al catálogo</a>
+      </div>
     </div>
-</div>
+
+  </div>
+</main>
 
 <app-footer></app-footer>

@@ -17,7 +17,7 @@ mostrarUsuarios() {
 }
 
 registrarUsuario(user: User) {
-        return this._http.post(this.URL_USUARIOS + '/registrar', user);
+        return this._http.post(this.URL_USUARIOS + '/register', user);
     }
 
 
